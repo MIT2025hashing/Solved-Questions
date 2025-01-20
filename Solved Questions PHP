@@ -1,0 +1,533 @@
+⭐️
+	1.	Define PHP.
+PHP (Hypertext Preprocessor) is a widely-used open-source server-side scripting language designed for web development. 
+It is embedded in HTML and is primarily used to create dynamic web pages.
+
+	2.	Mention any two benefits of using PHP and MySQL.
+	•	PHP and MySQL are open-source and free to use.
+	•	They provide a powerful combination for creating dynamic and interactive websites with database integration.
+
+	3.	What is the role of the echo statement in PHP?
+The echo statement outputs one or more strings or variables to the browser. It is commonly used to display HTML or PHP data.
+
+	4.	Define constants in PHP with an example.
+Constants are immutable values defined using the define() function. They remain the same throughout the script.
+Example:
+
+define("SITE_NAME", "MyWebsite");
+echo SITE_NAME; // Outputs: MyWebsite
+
+
+	5.	What are static variables in PHP?
+Static variables in PHP retain their value between function calls. They are declared using the static keyword within a function.
+
+	6.	State the difference between static and global variables in PHP.
+	•	Static variables retain their value across function calls and are accessible only within the function they are declared.
+	•	Global variables can be accessed anywhere in the script when declared global using the global keyword.
+
+	7.	What is the purpose of the gettype() function?
+
+The gettype() function returns the data type of a variable.
+Example:
+
+$var = "Hello";
+echo gettype($var); // Outputs: string
+
+
+	8.	Define arrays in PHP.
+An array in PHP is a data structure that stores multiple values in a single variable.
+
+	9.	List any two types of arrays in PHP.
+	•	Indexed Array: Stores values with numeric indices.
+	•	Associative Array: Uses named keys to store values.
+
+	10.	What is a multidimensional array?
+A multidimensional array contains one or more arrays as its elements. It allows the representation of data in rows and columns.
+
+	11.	Write the syntax of an if-else statement in PHP.
+
+if (condition) {
+    // Code to execute if condition is true
+} else {
+    // Code to execute if condition is false
+}
+
+
+	12.	State the difference between while and do-while loops.
+	•	While loop: The condition is checked before executing the block of code.
+	•	Do-while loop: The code block executes at least once, and the condition is checked afterward.
+
+	13.	What is the role of the foreach loop in PHP?
+The foreach loop is used to iterate over arrays, allowing easy access to each element without needing an index.
+
+	14.	What does the isset() function do?
+The isset() function checks if a variable is set and not NULL.
+Example:
+
+$var = "PHP";
+echo isset($var); // Outputs: 1 (true)
+
+
+	15.	Explain the difference between echo and print.
+	•	echo is faster and can output multiple strings.
+	•	print is slower, returns a value (1), and only outputs a single string.
+
+	16.	Define string functions in PHP with examples.
+String functions manipulate or retrieve information about strings.
+Example:
+
+echo strlen("PHP"); // Outputs: 3
+echo strtoupper("hello"); // Outputs: HELLO
+
+
+	17.	What is the output of strtoupper('hello')?
+Output: HELLO
+
+	18.	Write the syntax of the switch statement.
+
+switch (variable) {
+    case value1:
+        // Code to execute if variable == value1
+        break;
+    case value2:
+        // Code to execute if variable == value2
+        break;
+    default:
+        // Code to execute if no cases match
+}
+
+
+	19.	Define the ceil() and floor() functions with an example.
+	•	ceil() rounds a number up to the nearest integer.
+	•	floor() rounds a number down to the nearest integer.
+Example:
+
+echo ceil(4.3); // Outputs: 5
+echo floor(4.7); // Outputs: 4
+
+
+	20.	State the use of the pow() function in PHP.
+The pow() function calculates the power of a number.
+Example:
+
+echo pow(2, 3); // Outputs: 8
+
+
+	21.	What is the difference between $_GET and $_POST?
+	•	$_GET sends data via URL parameters, visible in the URL.
+	•	$_POST sends data in the HTTP request body, hidden from the URL.
+
+	22.	What is the purpose of hidden controls in HTML forms?
+Hidden controls store data that should not be visible but is sent with the form submission.
+
+	23.	Define the role of the $_REQUEST superglobal.
+The $_REQUEST superglobal contains input data from $_GET, $_POST, and $_COOKIE.
+
+	24.	What is the use of the strlen() function in PHP?
+The strlen() function returns the length of a string.
+Example:
+
+echo strlen("PHP"); // Outputs: 3
+
+
+	25.	Define the purpose of form validation in PHP.
+Form validation ensures the data submitted is correct, complete, and secure before processing.
+
+	26.	Mention two common errors encountered in PHP.
+	•	Parse Error: Syntax errors in the code.
+	•	Fatal Error: Missing or incorrect function calls.
+
+	27.	What is the purpose of the trim() function?
+The trim() function removes whitespace or predefined characters from the beginning and end of a string.
+
+	28.	Define PHP’s rand() function.
+The rand() function generates a random integer.
+Example:
+
+echo rand(1, 10); // Outputs a random number between 1 and 10
+
+
+	29.	Write the syntax for combining HTML and PHP in a single file.
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1><?php echo "Hello, PHP!"; ?></h1>
+</body>
+</html>
+
+
+	30.	What is the significance of form controls in PHP?
+Form controls (e.g., text fields, radio buttons) allow users to input data, which can then be processed by PHP scripts.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+⭐️3-Marks Questions
+
+	1.	Explain the structure and syntax of PHP with an example.
+PHP code is written between <?php ... ?> tags and can be embedded within HTML.
+Example:
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Welcome to PHP</h1>
+    <?php
+        echo "Hello, World!";
+    ?>
+</body>
+</html>
+
+
+	2.	Write a PHP script to declare and use global variables.
+Example:
+
+<?php
+$x = 10; // Global variable
+function test() {
+    global $x;
+    echo $x; // Outputs: 10
+}
+test();
+?>
+
+
+	3.	Write a short note on constants in PHP.
+Constants are immutable values that cannot be changed during script execution. They are defined using the define() function and do not use the $ prefix.
+Example:
+
+define("PI", 3.14159);
+echo PI; // Outputs: 3.14159
+
+
+	4.	How are multidimensional arrays used in PHP? Provide an example.
+Multidimensional arrays store arrays within arrays, enabling complex data structures.
+Example:
+
+$matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+echo $matrix[1][2]; // Outputs: 6
+
+
+	5.	Explain the use of the if-else statement in PHP with an example.
+The if-else statement executes code based on a condition.
+Example:
+
+$age = 18;
+if ($age >= 18) {
+    echo "You are an adult.";
+} else {
+    echo "You are not an adult.";
+}
+
+
+	6.	Differentiate between while and do-while loops with examples.
+	•	While loop checks the condition before execution.
+Example:
+
+$i = 0;
+while ($i < 3) {
+    echo $i; // Outputs: 012
+    $i++;
+}
+
+
+	•	Do-while loop executes the code at least once.
+Example:
+
+$i = 0;
+do {
+    echo $i; // Outputs: 012
+    $i++;
+} while ($i < 3);
+
+
+	7.	How does the isset() function work? Provide an example.
+The isset() function checks if a variable is set and not NULL.
+Example:
+
+$var = "PHP";
+if (isset($var)) {
+    echo "Variable is set.";
+}
+
+
+	8.	What is the use of the substr() function in PHP? Provide an example.
+The substr() function extracts a substring from a string.
+Example:
+
+$str = "Hello, World!";
+echo substr($str, 7, 5); // Outputs: World
+
+
+	9.	Write a PHP script to demonstrate the use of strcmp() and strrev() functions.
+Example:
+
+<?php
+$str1 = "PHP";
+$str2 = "php";
+echo strcmp($str1, $str2); // Outputs: -1 (case-sensitive comparison)
+
+$str = "Hello";
+echo strrev($str); // Outputs: olleH
+?>
+
+
+
+	10.	Explain the use of ceil(), floor(), and round() functions with examples.
+	•	ceil(): Rounds a number up to the nearest integer.
+	•	floor(): Rounds a number down to the nearest integer.
+	•	round(): Rounds a number to the nearest integer or specified decimal place.
+Examples:
+
+echo ceil(4.2);  // Outputs: 5
+echo floor(4.8); // Outputs: 4
+echo round(4.5); // Outputs: 5
+
+
+	11.	Write a PHP script to retrieve form data using the $_GET method.
+Example:
+
+<form method="get">
+    Name: <input type="text" name="name">
+    <input type="submit">
+</form>
+
+<?php
+if (isset($_GET['name'])) {
+    echo "Hello, " . $_GET['name'];
+}
+?>
+
+
+	12.	Discuss the purpose of the $_REQUEST superglobal with an example.
+The $_REQUEST superglobal collects data from $_GET, $_POST, and $_COOKIE.
+Example:
+
+<form method="post">
+    Name: <input type="text" name="name">
+    <input type="submit">
+</form>
+
+<?php
+if (isset($_REQUEST['name'])) {
+    echo "Hello, " . $_REQUEST['name'];
+}
+?>
+
+
+	13.	How can you create a PHP form with text fields and checkboxes?
+Example:
+
+<form method="post">
+    Name: <input type="text" name="name"><br>
+    Subscribe: <input type="checkbox" name="subscribe" value="Yes"><br>
+    <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+    echo "Name: " . $_POST['name'] . "<br>";
+    if (isset($_POST['subscribe'])) {
+        echo "Subscribed!";
+    } else {
+        echo "Not subscribed.";
+    }
+}
+?>
+
+
+	14.	Explain the use of the strtolower() and strtoupper() functions in PHP.
+	•	strtolower() converts a string to lowercase.
+	•	strtoupper() converts a string to uppercase.
+Examples:
+
+echo strtolower("HELLO");  // Outputs: hello
+echo strtoupper("hello");  // Outputs: HELLO
+
+
+	15.	What is the role of the pow() function in PHP? Provide an example.
+The pow() function computes the power of a number.
+Example:
+
+echo pow(3, 2); // Outputs: 9 (3^2)
+
+
+	16.	Write a PHP script to validate a user’s email address using form controls.
+Example:
+
+<form method="post">
+    Email: <input type="email" name="email">
+    <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        echo "Valid email!";
+    } else {
+        echo "Invalid email.";
+    }
+}
+?>
+
+
+	17.	Explain the process of reading form data using the $_POST method.
+The $_POST superglobal retrieves data sent via HTTP POST.
+Example:
+
+<form method="post">
+    Name: <input type="text" name="name">
+    <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+    echo "Hello, " . $_POST['name'];
+}
+?>
+
+
+	18.	How does the foreach loop work in PHP? Provide an example.
+The foreach loop iterates over each element in an array.
+Example:
+
+$colors = ["Red", "Green", "Blue"];
+foreach ($colors as $color) {
+    echo $color . " ";
+}
+// Outputs: Red Green Blue
+
+
+	19.	Write a PHP script to demonstrate the use of the rand() function.
+Example:
+
+echo rand(1, 100); // Outputs a random number between 1 and 100
+
+
+	20.	Describe the importance of combining HTML and PHP in a single file.
+Combining HTML and PHP enables developers to create dynamic web pages where content can be generated and controlled using PHP logic, while the layout is handled by HTML.
+	21.	How is the strlen() function used to validate form input?
+The strlen() function checks the length of input strings to ensure validity.
+Example:
+
+<form method="post">
+    Username: <input type="text" name="username">
+    <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+    if (strlen($_POST['username']) < 5) {
+        echo "Username must be at least 5 characters.";
+    } else {
+        echo "Valid username.";
+    }
+}
+?>
+
+
+	22.	Explain the difference between isset() and empty() functions.
+	•	isset() checks if a variable is set and not NULL.
+	•	empty() checks if a variable is empty (NULL, 0, "", etc.).
+Examples:
+
+$var = "";
+echo isset($var); // Outputs: 1 (true)
+echo empty($var); // Outputs: 1 (true)
+
+
+	23.	Write a PHP script to calculate the sum of numbers using a loop.
+Example:
+
+$sum = 0;
+for ($i = 1; $i <= 10; $i++) {
+    $sum += $i;
+}
+echo $sum; // Outputs: 55
+
+
+	24.	How does the mktime() function work in PHP? Provide an example.
+The mktime() function creates a Unix timestamp for a specific date and time.
+Example:
+
+echo mktime(0, 0, 0, 1, 1, 2025); // Outputs timestamp for 1st Jan 2025
+
+
+	25.	Explain the use of array_merge() and array_reverse() functions in PHP.
+	•	array_merge() combines two or more arrays into one.
+	•	array_reverse() reverses the order of an array.
+Examples:
+
+$arr1 = [1, 2];
+$arr2 = [3, 4];
+$merged = array_merge($arr1, $arr2); // [1, 2, 3, 4]
+$reversed = array_reverse($merged);  // [4, 3, 2, 1]
+
+
+	26.	Discuss the importance of form validation in web development.
+Form validation ensures user input is accurate, complete, and secure, preventing errors and vulnerabilities like SQL injection and XSS attacks.
+	27.	Write a PHP script to read data from a list box using the $_POST method.
+Example:
+
+<form method="post">
+    <select name="color">
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Blue">Blue</option>
+    </select>
+    <input type="submit">
+</form>
+
+<?php
+if ($_POST) {
+    echo "You selected: " . $_POST['color'];
+}
+?>
+
+
+	28.	Explain the difference between switch and if-else statements with an example.
+	•	Switch is used for fixed, discrete values.
+	•	If-else supports complex conditions.
+Example:
+
+$num = 2;
+switch ($num) {
+    case 1:
+        echo "One";
+        break;
+    case 2:
+        echo "Two";
+        break;
+    default:
+        echo "Other";
+}
+
+
+	29.	Write a PHP script to demonstrate the trim() and ltrim() functions.
+Example:
+
+$str = "  Hello  ";
+echo trim($str);   // Outputs: Hello
+echo ltrim($str);  // Outputs: Hello  
+
+
+	30.	Describe the process of using form controls for file uploads in PHP.
+File uploads require an HTML form with enctype="multipart/form-data". Use PHP’s $_FILES array to handle the uploaded file.
+Example:
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit">
+</form>
+
+<?php
+if ($_FILES) {
+    $file = $_FILES['file'];
+    move_uploaded_file($file['tmp_name'], "uploads/" . $file['name']);
+    echo "File uploaded successfully!";
+}
+?>
