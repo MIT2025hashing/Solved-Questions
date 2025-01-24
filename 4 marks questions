@@ -1,0 +1,451 @@
+1. PHP Program to Demonstrate Multidimensional Arrays
+
+A multidimensional array is an array containing one or more arrays.
+
+Example:
+
+<?php
+$students = [
+    ["John", 85, "A"],
+    ["Alice", 90, "A+"],
+    ["Bob", 75, "B"]
+];
+
+foreach ($students as $student) {
+    echo "Name: $student[0], Marks: $student[1], Grade: $student[2]<br>";
+}
+?>
+
+Output:
+
+Name: John, Marks: 85, Grade: A
+Name: Alice, Marks: 90, Grade: A+
+Name: Bob, Marks: 75, Grade: B
+
+2. String Functions (substr, strcmp, strrev)
+	1.	substr(): Extracts a part of a string.
+
+echo substr("Hello World", 6); // Output: World
+
+
+	2.	strcmp(): Compares two strings (case-sensitive).
+
+echo strcmp("abc", "abc"); // Output: 0 (equal)
+
+
+	3.	strrev(): Reverses a string.
+
+echo strrev("Hello"); // Output: olleH
+
+3. Simple Calculator Using Form Inputs
+
+HTML + PHP:
+
+<form method="POST">
+    <input type="number" name="num1" placeholder="Enter number 1">
+    <input type="number" name="num2" placeholder="Enter number 2">
+    <select name="operation">
+        <option value="add">Add</option>
+        <option value="sub">Subtract</option>
+        <option value="mul">Multiply</option>
+        <option value="div">Divide</option>
+    </select>
+    <button type="submit" name="calculate">Calculate</button>
+</form>
+
+<?php
+if (isset($_POST['calculate'])) {
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $operation = $_POST['operation'];
+
+    switch ($operation) {
+        case "add":
+            echo "Result: " . ($num1 + $num2);
+            break;
+        case "sub":
+            echo "Result: " . ($num1 - $num2);
+            break;
+        case "mul":
+            echo "Result: " . ($num1 * $num2);
+            break;
+        case "div":
+            echo $num2 != 0 ? "Result: " . ($num1 / $num2) : "Cannot divide by zero";
+            break;
+    }
+}
+?>
+
+4. Factorial of a Number Using a Function
+
+<?php
+function factorial($n) {
+    if ($n <= 1) return 1;
+    return $n * factorial($n - 1);
+}
+
+echo "Factorial of 5: " . factorial(5); // Output: 120
+?>
+
+5. File Handling (fopen, fread, fwrite, fclose)
+
+Example:
+
+<?php
+$file = fopen("example.txt", "w");
+fwrite($file, "Hello, File Handling in PHP!");
+fclose($file);
+
+$file = fopen("example.txt", "r");
+echo fread($file, filesize("example.txt"));
+fclose($file);
+?>
+
+6. Looping Structures (for, while, do-while)
+
+<?php
+// For loop
+for ($i = 1; $i <= 5; $i++) {
+    echo "For loop: $i<br>";
+}
+
+// While loop
+$i = 1;
+while ($i <= 5) {
+    echo "While loop: $i<br>";
+    $i++;
+}
+
+// Do-While loop
+$i = 1;
+do {
+    echo "Do-While loop: $i<br>";
+    $i++;
+} while ($i <= 5);
+?>
+
+7. isset(), unset(), and empty()
+	1.	isset(): Checks if a variable is set.
+
+$name = "PHP";
+echo isset($name) ? "Variable is set" : "Variable is not set";
+
+
+	2.	unset(): Unsets a variable.
+
+unset($name);
+echo isset($name) ? "Variable is set" : "Variable is not set";
+
+
+	3.	empty(): Checks if a variable is empty.
+
+$name = "";
+echo empty($name) ? "Variable is empty" : "Variable is not empty";
+
+8. PHP Form with Multiple Inputs
+
+HTML + PHP:
+
+<form method="POST">
+    Name: <input type="text" name="name"><br>
+    Gender: 
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female<br>
+    Hobbies: 
+    <input type="checkbox" name="hobbies[]" value="Reading"> Reading
+    <input type="checkbox" name="hobbies[]" value="Gaming"> Gaming<br>
+    Country: 
+    <select name="country">
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+    </select><br>
+    <button type="submit">Submit</button>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Name: " . $_POST['name'] . "<br>";
+    echo "Gender: " . $_POST['gender'] . "<br>";
+    echo "Hobbies: " . implode(", ", $_POST['hobbies']) . "<br>";
+    echo "Country: " . $_POST['country'] . "<br>";
+}
+?>
+
+9. PHP Script to Calculate Fibonacci Series
+
+<?php
+function fibonacci($n) {
+    $a = 0; 
+    $b = 1;
+    echo "Fibonacci Series: ";
+    for ($i = 0; $i < $n; $i++) {
+        echo $a . " ";
+        $temp = $a + $b;
+        $a = $b;
+        $b = $temp;
+    }
+}
+fibonacci(10);
+?>
+
+10. Combining PHP and HTML on a Single Page
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1><?php echo "Welcome to PHP and HTML Integration!"; ?></h1>
+    <p>Current Date: <?php echo date("Y-m-d"); ?></p>
+</body>
+</html>
+
+11. Validating and Processing Form Data
+
+HTML + PHP:
+
+<form method="POST">
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    <button type="submit">Submit</button>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+
+    if (empty($name)) {
+        echo "Name is required.<br>";
+    } else {
+        echo "Name: $name<br>";
+    }
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Email: $email<br>";
+    } else {
+        echo "Invalid email format.<br>";
+    }
+}
+?>
+
+12. Using date(), time(), and mktime()
+
+<?php
+echo "Current Date: " . date("Y-m-d") . "<br>";
+echo "Current Time: " . date("H:i:s") . "<br>";
+
+$timestamp = mktime(0, 0, 0, 1, 1, 2025);
+echo "Timestamp for 1st Jan 2025: " . date("Y-m-d", $timestamp);
+?>
+
+13. Reversing a String and Checking Palindrome
+
+<?php
+function isPalindrome($str) {
+    $reversed = strrev($str);
+    if ($str === $reversed) {
+        return "$str is a palindrome.";
+    } else {
+        return "$str is not a palindrome.";
+    }
+}
+
+echo isPalindrome("madam"); // Output: madam is a palindrome.
+?>
+
+14. Array Functions (array_merge and in_array)
+
+<?php
+$array1 = [1, 2, 3];
+$array2 = [4, 5, 6];
+
+// array_merge
+$merged = array_merge($array1, $array2);
+print_r($merged); // Output: [1, 2, 3, 4, 5, 6]
+
+// in_array
+if (in_array(3, $array1)) {
+    echo "3 is in the array.";
+}
+?>
+
+15. Processing Login Form
+
+<form method="POST">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="password" name="password"><br>
+    <button type="submit">Login</button>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if ($username == "admin" && $password == "1234") {
+        echo "Login successful!";
+    } else {
+        echo "Invalid username or password.";
+    }
+}
+?>
+
+16. Handling Form Data with $_REQUEST
+
+<form method="POST">
+    Name: <input type="text" name="name"><br>
+    <button type="submit">Submit</button>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Name: " . $_REQUEST['name'];
+}
+?>
+
+17. Sum of Even Numbers from 1 to 100
+
+<?php
+$sum = 0;
+for ($i = 2; $i <= 100; $i += 2) {
+    $sum += $i;
+}
+echo "Sum of even numbers from 1 to 100: $sum";
+?>
+
+18. Passing Variables Between Pages Using $_GET
+
+Page 1 (form.php):
+
+<a href="process.php?name=John&age=25">Click Here</a>
+
+Page 2 (process.php):
+
+<?php
+$name = $_GET['name'];
+$age = $_GET['age'];
+echo "Name: $name, Age: $age";
+?>
+
+19. File Upload
+
+HTML + PHP:
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $file = $_FILES['file'];
+    move_uploaded_file($file['tmp_name'], "uploads/" . $file['name']);
+    echo "File uploaded successfully!";
+}
+?>
+
+20. String Manipulation Functions
+
+<?php
+$str = "Hello World";
+
+// strlen
+echo "Length: " . strlen($str) . "<br>";
+
+// strtoupper
+echo "Uppercase: " . strtoupper($str) . "<br>";
+
+// strtolower
+echo "Lowercase: " . strtolower($str) . "<br>";
+?>
+
+21. Processing Form Data in a Table
+
+<form method="POST">
+    Name: <input type="text" name="name"><br>
+    Age: <input type="number" name="age"><br>
+    <button type="submit">Submit</button>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "<table border='1'>
+        <tr><th>Name</th><th>Age</th></tr>
+        <tr><td>{$_POST['name']}</td><td>{$_POST['age']}</td></tr>
+    </table>";
+}
+?>
+
+22. Redirecting to Another Page
+
+<?php
+header("Location: https://example.com");
+exit();
+?>
+
+23. Counting Vowels in a String
+
+<?php
+function countVowels($str) {
+    preg_match_all('/[aeiou]/i', $str, $matches);
+    return count($matches[0]);
+}
+
+echo "Number of vowels: " . countVowels("Hello World");
+?>
+
+24. Passing Variables Through URL
+
+<a href="process.php?name=Jane&city=NYC">Click Here</a>
+
+25. Using sort() and array_reverse()
+
+<?php
+$array = [5, 3, 8, 1];
+sort($array);
+print_r($array);
+
+$reversed = array_reverse($array);
+print_r($reversed);
+?>
+
+26. Registration Form Validation
+
+Same as question 15, add validation for fields like empty checks.
+
+27. Switch Statement
+
+<?php
+$day = "Monday";
+
+switch ($day) {
+    case "Monday":
+        echo "Start of the week!";
+        break;
+    case "Friday":
+        echo "Weekend is here!";
+        break;
+    default:
+        echo "It's a regular day.";
+}
+?>
+
+28. Validate User Input with Errors
+
+Add if checks for empty fields (see question 11).
+
+29. File Inputs in Forms
+
+See question 19.
+
+30. Grade Calculation Based on Marks
+
+<?php
+$marks = 85;
+if ($marks >= 90) {
+    echo "Grade: A+";
+} elseif ($marks >= 75) {
+    echo "Grade: A";
+} else {
+    echo "Grade: B";
+}
+?>
